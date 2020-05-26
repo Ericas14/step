@@ -7,14 +7,7 @@
 #greeting-container {
   margin-top: 20px;
 }
-#aggies {
-    align-content: left;
-    width: 100px;
-    height: 100px;
-}
-
-#google{
-    align-content: right;
+.thumbnail {
     width: 100px;
     height: 100px;
 }
