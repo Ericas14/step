@@ -20,9 +20,9 @@ function addRandomFact() {
       ['I like to knit!', 'I am an avid reader', 'My favorite programming language is Java', 'I am from Ashland, VA'];
 
   // Pick a random fact.
-  const rFact = facts[Math.floor(Math.random() * facts.length)];
+  const randomFact = facts[Math.floor(Math.random() * facts.length)];
 
   // Add it to the page.
   const factContainer = document.getElementById('fact-container');
-  factContainer.innerText = rFact;
+  factContainer.innerText = randomFact;
 }
