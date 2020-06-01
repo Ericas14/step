@@ -26,3 +26,29 @@ function addRandomFact() {
   const factContainer = document.getElementById('fact-container');
   factContainer.innerText = randomFact;
 }
+
+function getFromServlet(){
+    console.log("Fetching from sevlet");
+
+    const fetchPromise = fetch('/data');
+
+    fetchPromise.then(handle);
+}
+
+function handle(response){
+    console.log("Handling promise");
+
+    const responseText = response.text();
+
+    responseText.then(addToSite);
+}
+
+function addToSite(saying){
+    console.log("Adding " + saying + " to site");
+
+    const sayingContainer = document.getElementById('saying-container');
+    
+    sayingContainer.innerHTML = saying;
+    }
+
+
