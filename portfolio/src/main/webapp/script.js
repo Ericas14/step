@@ -36,9 +36,7 @@ function getFromServlet(){
 function handle(response){
     console.log("Handling promise");
 
-    const responseText = response.text();
-
-    responseText.then(addToSite);
+    response.text().then(addToSite);
 }
 
 function addToSite(saying){
