@@ -30,9 +30,7 @@ function addRandomFact() {
 function getFromServlet(){
     console.log("Fetching from sevlet");
 
-    const fetchPromise = fetch('/data');
-
-    fetchPromise.then(handle);
+    fetch('/data').then(handle);
 }
 
 function handle(response){
