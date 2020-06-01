@@ -43,8 +43,12 @@ function addToSite(saying){
     console.log("Adding " + saying + " to site");
 
     const sayingContainer = document.getElementById('saying-container');
-    
-    sayingContainer.innerHTML = saying;
+    if(sayingContainer == null){
+       console.assert(document.getElementById('saying-container'), "You have no element with ID 'saying-container'"); 
+    }
+    else{
+        sayingContainer.innerHTML = saying;
+    }
     }
 
 
