@@ -23,10 +23,14 @@ import javax.servlet.http.HttpServletResponse;
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
+    ArrayList<String> messages = new ArrayList<>();
+    messages.add("Hello World!");
+    messages.add("This is a message");
+    messages.add("This is another message");
 
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+  public String doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     response.setContentType("text/html;");
-    response.getWriter().println("<h1>Hello Erica!</h1>");
+    response.getWriter().println("<h1>Hello Erica!</h1>"); 
   }
 }
