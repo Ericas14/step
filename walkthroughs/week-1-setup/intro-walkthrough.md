@@ -130,5 +130,6 @@ deploy it to App Engine so anyone can visit it.
 When you're ready, start the next walkthrough by running this command:
 
 ```bash
-teachme ~/step/walkthroughs/week-2-web-development/portfolio-walkthrough.md
+teachme \
+ ~/step/walkthroughs/week-2-web-development/portfolio-walkthrough.md
 ```
