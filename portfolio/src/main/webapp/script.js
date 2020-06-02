@@ -29,9 +29,13 @@ function addRandomFact() {
 
 
 function getFromServlet(){
-    fetch('/data').then(response => response.text()).then((saying) => { const sayingContainer = document.getElementById('saying-container');
+    fetch('/data').then(response => response.text()).then((saying) => { 
+
+    const sayingContainer = document.getElementById('saying-container');
     console.assert(sayingContainer, "You have no element with ID 'saying-container'"); 
-    sayingContainer.innerHTML = saying;})
+    sayingContainer.innerHTML = saying;
+    
+    })
     
 }
 
