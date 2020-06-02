@@ -34,8 +34,7 @@ public class DataServlet extends HttpServlet {
     messages.add("This is a message");
     messages.add("This is another message");  
 
-    response.setContentType("text/html;");
-    response.getWriter().println("<h1>Hello Erica!</h1>"); 
+    response.setContentType("application/json"); 
     Gson gson = new Gson();
     response.getWriter().println(gson.toJson(messages));
   }
