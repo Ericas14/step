@@ -27,29 +27,12 @@ function addRandomFact() {
   factContainer.innerText = randomFact;
 }
 
+
 function getFromServlet(){
-    console.log("Fetching from sevlet");
-
-    fetch('/data').then(handle);
-}
-
-function handle(response){
-    console.log("Handling promise");
-
-    response.text().then(addToSite);
-}
-
-function addToSite(saying){
-    console.log("Adding " + saying + " to site");
-
-    const sayingContainer = document.getElementById('saying-container');
+    fetch('/data').then(response => response.text()).then((saying) => {
+    console.assert(document.getElementById('saying-container'), "You have no element with ID 'saying-container'"); 
+    document.getElementById('saying-container').innerHTML = saying;})
     
-    if(sayingContainer == null){
-       console.assert(document.getElementById('saying-container'), "You have no element with ID 'saying-container'"); 
-    }
-    else{
-        sayingContainer.innerHTML = saying;
-    }
 }
 
 
