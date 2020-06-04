@@ -41,6 +41,7 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
       String userComment = request.getParameter("user-comment");
+      messages.add(userComment);
       Entity commentEntity = new Entity("Comment");
       commentEntity.setProperty("Comment", userComment);
       DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
