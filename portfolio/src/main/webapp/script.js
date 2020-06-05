@@ -29,14 +29,28 @@ function addRandomFact() {
 
 
 function getFromServlet(){
-    fetch('/data').then(response => response.text()).then((saying) => { 
+    fetch('/data').then(response => response.text()).then((comment) => { 
 
-    const sayingContainer = document.getElementById('saying-container');
-    console.assert(sayingContainer, "You have no element with ID 'saying-container'"); 
-    sayingContainer.innerHTML = saying;
+    const commentContainer = document.getElementById('comment-container');
+    console.assert(commentContainer, "You have no element with ID 'comment-container'"); 
     
-    })
     
+    const list = document.getElementById('comment-container');
+    comment = comment.replace("[", "");
+    comment = comment.replace("]","");
+    commArr = comment.split(',');
+    for(i =0;  i < commArr.length; i++){
+    list.appendChild(createListElement(commArr[i]));
+    }
+    });
+    
+   
+}
+
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }
 
 
