@@ -35,14 +35,14 @@ function getFromServlet(){
     console.assert(commentContainer, "You have no element with ID 'comment-container'"); 
     
     
-    const list = document.getElementById('comment-container');
-    comment = comment.replace("[", "");
-    comment = comment.replace("]","");
-    commArr = comment.split(',');
-    for(i =0;  i < commArr.length; i++){
-        list.appendChild(createListElement(commArr[i]));
-    }
-    });
+        const list = document.getElementById('comment-container');
+        comment = comment.replace("[", "");
+        comment = comment.replace("]","");
+        var commentArray = comment.split(',');
+        for(i =0;  i < commentArray.length; i++){
+            list.appendChild(createListElement(commentArray[i]));
+        }
+        });
     
    
 }
