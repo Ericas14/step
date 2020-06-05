@@ -40,7 +40,7 @@ function getFromServlet(){
     comment = comment.replace("]","");
     commArr = comment.split(',');
     for(i =0;  i < commArr.length; i++){
-    list.appendChild(createListElement(commArr[i]));
+        list.appendChild(createListElement(commArr[i]));
     }
     });
     
