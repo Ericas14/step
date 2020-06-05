@@ -44,7 +44,6 @@ public class DataServlet extends HttpServlet {
       List<String> comments = new ArrayList<>();
       for(Entity entity:results.asIterable() ){
           String comment = (String)entity.getProperty("Comment");
-          //Comment comment = new Comment(comment);
           comments.add(comment);
       }
     response.setContentType("application/json"); 
