@@ -52,8 +52,6 @@ public class DataServlet extends HttpServlet {
     response.setContentType("application/json"); 
     Gson gson = new Gson();
     response.getWriter().println(gson.toJson(comments));
-
-    //String commentMax = request.getParameter("loadComments");
   }
 
   @Override
