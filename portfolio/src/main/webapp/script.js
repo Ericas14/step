@@ -29,20 +29,25 @@ function addRandomFact() {
 
 
 function getFromServlet(){
-    fetch('/data').then(response => response.text()).then((comment) => { 
+    const param = new URLSearchParams(window.location.search);
+    var maxParameter = param.get('load-comments');
+    if (maxParameter == null){
+        maxParameter = 5;
+    }
 
-    const commentContainer = document.getElementById('comment-container');
-    console.assert(commentContainer, "You have no element with ID 'comment-container'"); 
+    fetch('/data?load-comments='+maxParameter).then(response => response.text()).then((comment) => { 
     
-    
-        const list = document.getElementById('comment-container');
-        comment = comment.replace("[", "");
-        comment = comment.replace("]","");
-        var commentArray = comment.split(',');
-        for(i =0;  i < commentArray.length; i++){
-            list.appendChild(createListElement(commentArray[i]));
+      const commentContainer = document.getElementById('comment-container');
+      console.assert(commentContainer, "You have no element with ID 'comment-container'"); 
+
+      const list = document.getElementById('comment-container');
+      comment = comment.replace("[", "");
+      comment = comment.replace("]","");
+      var commentArray = comment.split(',');
+      for(i =0;  i < commentArray.length; i++){
+          list.appendChild(createListElement(commentArray[i]));
         }
-        });
+    });
     
    
 }
@@ -52,5 +57,6 @@ function createListElement(text) {
   liElement.innerText = text;
   return liElement;
 }
+
 
 
