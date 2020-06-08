@@ -49,5 +49,10 @@ function createListElement(text) {
   return liElement;
 }
 
+function deleteComments(){
+  const params = new URLSearchParams();
+  fetch('/delete-data', {method: 'POST', body: params});
+}
+
 
 
