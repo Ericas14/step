@@ -28,6 +28,7 @@ function addRandomFact() {
 }
 
 
+
 function getFromServlet(value){
     var maxParameter = value;
 
