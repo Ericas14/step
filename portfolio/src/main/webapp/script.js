@@ -29,14 +29,13 @@ function addRandomFact() {
 
 
 function getFromServlet(){
-    fetch('/data').then(response => response.json()).then((comment) => { 
+    fetch('/data').then(response => response.json()).then((comments) => { 
 
         const commentContainer = document.getElementById('comment-container');
         console.assert(commentContainer, "You have no element with ID 'comment-container'"); 
 
-        const list = document.getElementById('comment-container');
-        for(i =0;  i < comment.length; i++){
-            list.appendChild(createListElement(comment[i]));
+        for(i =0;  i < comments.length; i++){
+            commentContainer.appendChild(createListElement(comments[i]));
         }
     });
     
