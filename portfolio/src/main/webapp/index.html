@@ -57,11 +57,9 @@
     <br>
     <form>
     <p> Number of comments to show</p>
-    <input type = "number" name="load-comments" value ="1" max="10"> 
-    <input type = "submit">
+    <input type = "number" id="load-comments" onchange="getFromServlet()" value ="0" max="10" min="0"> 
     </form>
     <br>
-    <button onclick="getFromServlet()">Show Comments</button>
     <ul id="comment-container"></ul>
     </div>
   </body>
