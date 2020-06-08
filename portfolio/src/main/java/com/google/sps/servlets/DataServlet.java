@@ -28,6 +28,7 @@ import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
 import java.util.List;
+import com.google.appengine.api.datastore.FetchOptions;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
@@ -40,9 +41,11 @@ public class DataServlet extends HttpServlet {
     Query query = new Query("Comment").addSort("Comment", SortDirection.DESCENDING);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
-      
+
+    String commentMax = request.getParameter("load-comments");
+    int max = Integer.parseInt(commentMax);  
       List<String> comments = new ArrayList<>();
-      for(Entity entity:results.asIterable() ){
+      for(Entity entity:results.asIterable(FetchOptions.Builder.withLimit(max)) ){
           String comment = (String)entity.getProperty("Comment");
           comments.add(comment);
       }

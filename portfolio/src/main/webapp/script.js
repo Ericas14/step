@@ -28,14 +28,16 @@ function addRandomFact() {
 }
 
 
-function getFromServlet(){
-    fetch('/data').then(response => response.json()).then((comments) => { 
 
-        const commentContainer = document.getElementById('comment-container');
-        console.assert(commentContainer, "You have no element with ID 'comment-container'"); 
+function getFromServlet(value){
+    var maxParameter = value;
 
-        for(i =0;  i < comments.length; i++){
-            commentContainer.appendChild(createListElement(comments[i]));
+    fetch('/data?load-comments='+maxParameter).then(response => response.json()).then((comments) => {
+      const commentContainer = document.getElementById('comment-container');
+      console.assert(commentContainer, "You have no element with ID 'comment-container'");
+      document.getElementById("comment-container").innerHTML=""; 
+      for(i =0;  i < comments.length; i++){
+          commentContainer.appendChild(createListElement(comments[i]));
         }
     });
     
@@ -47,5 +49,6 @@ function createListElement(text) {
   liElement.innerText = text;
   return liElement;
 }
+
 
 

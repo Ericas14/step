@@ -48,13 +48,19 @@
     </ul>
 
     <p> View my transcript <a href="images/AcademicTranscript.pdf">here</a></p>
-    <button onclick="getFromServlet()">Click me!</button>
-    <ul id="comment-container"></ul>
     <br>
+    <h3>Give feedback!</h3>
     <form action="data" method="POST">
         <input type="text" name="user-comment">
         <input type="submit"/>
     </form>
+    <br>
+    <form>
+    <p> Number of comments to show</p>
+    <input type = "number" id="load-comments" onchange="getFromServlet(this.value)" value ="0" max="10" min="0"> 
+    </form>
+    <br>
+    <ul id="comment-container"></ul>
     </div>
   </body>
 </html>
