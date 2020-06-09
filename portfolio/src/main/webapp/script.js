@@ -28,8 +28,8 @@ function addRandomFact() {
 }
 
 
-function getFromServlet(){
-    var maxParameter = document.getElementById('load-comments').value;
+function getFromServlet(value){
+    var maxParameter = value;
 
     fetch('/data?load-comments='+maxParameter).then(response => response.json()).then((comments) => {
       const commentContainer = document.getElementById('comment-container');
@@ -52,6 +52,7 @@ function createListElement(text) {
 function deleteComments(){
   const params = new URLSearchParams();
   fetch('/delete-data', {method: 'POST', body: params});
+  getFromServlet(0);
 }
 
 
