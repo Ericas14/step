@@ -28,7 +28,7 @@ function addRandomFact() {
 }
 
 
-function getFromServlet(value){
+function generateComments(value){
 
     fetch('/data?load-comments='+value).then(response => response.json()).then((comments) => {
       const commentContainer = document.getElementById('comment-container');
@@ -53,7 +53,7 @@ deleted comments from page */
 function deleteComments(){
   const params = new URLSearchParams();
   fetch('/delete-data', {method: 'POST', body: params});
-  getFromServlet(0);
+  generateComments(0);
 }
 
 

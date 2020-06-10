@@ -17,6 +17,9 @@ import java.util.List;
 @WebServlet("/delete-data")
 public class DeleteServlet extends HttpServlet{
 
+  /*Queries the datastore, gets the keys of all of the comments in the
+  datastore and puts them into an list, then the datastore deletes all
+   keys. */
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
       Query query = new Query("Comment").addSort("Comment", SortDirection.DESCENDING);
