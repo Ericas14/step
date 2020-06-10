@@ -28,6 +28,7 @@ function addRandomFact() {
 }
 
 
+
 function generateComments(value){
 
     fetch('/data?load-comments='+value).then(response => response.json()).then((comments) => {
