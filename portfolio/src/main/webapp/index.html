@@ -57,10 +57,12 @@
     <br>
     <form>
     <p> Number of comments to show</p>
-    <input type = "number" id="load-comments" onchange="getFromServlet(this.value)" value ="0" max="10" min="0"> 
+    <input type = "number" id="load-comments" onchange="generateComments(this.value)" value ="0" max="10" min="0"> 
     </form>
     <br>
     <ul id="comment-container"></ul>
+    <br>
+    <button onclick="deleteComments()">Delete Comments</button>
     </div>
   </body>
 </html>

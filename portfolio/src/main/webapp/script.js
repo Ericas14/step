@@ -29,10 +29,9 @@ function addRandomFact() {
 
 
 
-function getFromServlet(value){
-    var maxParameter = value;
+function generateComments(value){
 
-    fetch('/data?load-comments='+maxParameter).then(response => response.json()).then((comments) => {
+    fetch('/data?load-comments='+value).then(response => response.json()).then((comments) => {
       const commentContainer = document.getElementById('comment-container');
       console.assert(commentContainer, "You have no element with ID 'comment-container'");
       document.getElementById("comment-container").innerHTML=""; 
@@ -48,6 +47,14 @@ function createListElement(text) {
   const liElement = document.createElement('li');
   liElement.innerText = text;
   return liElement;
+}
+
+/*Tells the server to delete the comments through getPost and then clears
+deleted comments from page */
+function deleteComments(){
+  const params = new URLSearchParams();
+  fetch('/delete-data', {method: 'POST', body: params});
+  generateComments(0);
 }
 
 
