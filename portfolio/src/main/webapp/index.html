@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOmYmvWcgE-RRvd0o2wIpdgaVNZCVojKM"></script>
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="createMap()">
     <div id="content">
       <h1>Erica Smith's Portfolio</h1>
       <p>My name is Erica Smith. I'm from Ashland, VA and I'm a rising sophomore at NC A&T SU.
@@ -63,6 +64,10 @@
     <ul id="comment-container"></ul>
     <br>
     <button onclick="deleteComments()">Delete Comments</button>
+    <br>
+    <h1>Hello Google Maps</h1> 
+    <div id="map"></div>
     </div>
+    
   </body>
 </html>
