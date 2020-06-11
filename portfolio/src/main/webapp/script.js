@@ -12,6 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//Global variable for later use of markers
+var map;
+var markerList = [];
+
 /**
  * Adds a random fact to the page.
  */
@@ -56,10 +60,141 @@ function deleteComments(){
   generateComments(0);
 }
 
-function createMap() {
-  const map = new google.maps.Map(
+function dayMode() {
+  map = new google.maps.Map(
       document.getElementById('map'),
-      {center: {lat: 37.422, lng: -122.084}, zoom: 16});
+      {center: {lat: 37.7590, lng: -77.4800}, zoom: 12});
+}
+
+function nightMode(){
+    // Styles a map in night mode.
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 37.7590, lng: -77.4800},
+          zoom: 12,
+          styles: [
+            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#746855'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            }
+          ]
+        });
+}
+
+function markers(){
+   const homeTown = new google.maps.Marker({
+    position: {lat: 37.7590, lng: -77.4800},
+    map: map,
+    title: 'My Hometown'
+  });
+  markerList.push(homeTown);
+
+   const college = new google.maps.Marker({
+    position: {lat: 36.072639, lng: -79.771370},
+    map: map,
+    title: 'The university I attend'
+  });
+  markerList.push(college);
+
+  const yarnStore = new google.maps.Marker({
+    position: {lat: 37.759030, lng: -77.481750},
+    map: map,
+    title: 'My favorite yarn store'
+  });
+  markerList.push(yarnStore);
+
+  const beach = new google.maps.Marker({
+    position: {lat: 37.268181, lng: -76.010834},
+    map: map,
+    title: 'My favorite beach'
+  });
+  markerList.push(beach);
+
+  const library = new google.maps.Marker({
+    position: {lat: 37.590190, lng: -77.496580},
+    map: map,
+    title: 'My favorite library'
+  });
+  markerList.push(library);
+}
+
+function removeMarkers(){
+    for(i =0; i < markerList.length; i++){
+        markerList[i].setMap(null);
+    }
 }
 
 

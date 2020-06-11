@@ -7,7 +7,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOmYmvWcgE-RRvd0o2wIpdgaVNZCVojKM"></script>
     <script src="script.js"></script>
   </head>
-  <body onload="createMap()">
+  <body onload="dayMode()">
     <div id="content">
       <h1>Erica Smith's Portfolio</h1>
       <p>My name is Erica Smith. I'm from Ashland, VA and I'm a rising sophomore at NC A&T SU.
@@ -66,6 +66,10 @@
     <button onclick="deleteComments()">Delete Comments</button>
     <br>
     <h1>Hello Google Maps</h1> 
+    <button onclick="nightMode()">Night Mode</button>
+    <button onclick="dayMode()">Day Mode</button>
+    <button onclick="markers()">See Markers</button>
+    <button onclick="removeMarkers()">Remove Markers</button>
     <div id="map"></div>
     </div>
     
