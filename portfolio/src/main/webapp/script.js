@@ -63,14 +63,14 @@ function deleteComments(){
 function dayMode() {
   map = new google.maps.Map(
       document.getElementById('map'),
-      {center: {lat: 37.7590, lng: -77.4800}, zoom: 12});
+      {center: {lat: 37.7590, lng: -77.4800}, zoom: 7});
 }
 
 function nightMode(){
     // Styles a map in night mode.
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 37.7590, lng: -77.4800},
-          zoom: 12,
+          zoom: 7,
           styles: [
             {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
             {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
