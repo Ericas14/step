@@ -15,6 +15,7 @@
 //Global variable for later use of markers
 var map;
 var markerList = [];
+var markersVisible = false;
 
 /**
  * Adds a random fact to the page.
@@ -64,6 +65,10 @@ function dayMode() {
   map = new google.maps.Map(
       document.getElementById('map'),
       {center: {lat: 37.7590, lng: -77.4800}, zoom: 7});
+
+    if(markersVisible){
+            markers();
+        }
 }
 
 function nightMode(){
@@ -152,6 +157,9 @@ function nightMode(){
             }
           ]
         });
+        if(markersVisible){
+            markers();
+        }
 }
 
 function markers(){
@@ -189,12 +197,15 @@ function markers(){
     title: 'My favorite library'
   });
   markerList.push(library);
+
+  markersVisible= true;
 }
 
 function removeMarkers(){
     for(i =0; i < markerList.length; i++){
         markerList[i].setMap(null);
     }
+    markersVisible = false;
 }
 
 
