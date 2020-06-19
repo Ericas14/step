@@ -7,8 +7,9 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOmYmvWcgE-RRvd0o2wIpdgaVNZCVojKM"></script>
     <script src="script.js"></script>
   </head>
-  <body onload="createMap()">
+  <body onload="dayMode()">
     <div id="content">
+        <div id ="section">
       <h1>Erica Smith's Portfolio</h1>
       <p>My name is Erica Smith. I'm from Ashland, VA and I'm a rising sophomore at NC A&T SU.
          This summer, I am a STEP intern with Google.  
@@ -18,6 +19,8 @@
       <p>Click here to get a random fact:</p>
       <button onclick="addRandomFact()">Fact</button>
       <div id="fact-container"></div>
+        </div>
+        <div id="section">
       <h2>Projects</h2>
       <a href="https://github.com/Ericas14">My Github</a>
 
@@ -35,7 +38,9 @@
         the maze. The maze was created using a 2D array of images. The sprite could move through the maze
         by looking at the next image and seeing if it was "empty" or a "wall". The game also required the
         user to retreive a key before being able to complete the level. </p>
+        </div>
 
+        <div id="section">
     <h2>Academic Achievements</h2>
     <ul>
         <li> Finished the 2019-2020 school year at NC A&T SU with an average GPA  of 4.0.</li>
@@ -49,10 +54,12 @@
     </ul>
 
     <p> View my transcript <a href="images/AcademicTranscript.pdf">here</a></p>
+    </div>
     <br>
+    <div id="section">
     <h3>Give feedback!</h3>
     <form action="data" method="POST">
-        <input type="text" name="user-comment">
+        <input type="text" name="user-comment" autocomplete="off">
         <input type="submit"/>
     </form>
     <br>
@@ -64,8 +71,12 @@
     <ul id="comment-container"></ul>
     <br>
     <button onclick="deleteComments()">Delete Comments</button>
-    <br>
-    <h1>Hello Google Maps</h1> 
+    </div>
+    <br> 
+    <button onclick="nightMode()">Night Mode</button>
+    <button onclick="dayMode()">Day Mode</button>
+    <button onclick="markers()">See Markers</button>
+    <button onclick="removeMarkers()">Remove Markers</button>
     <div id="map"></div>
     </div>
     

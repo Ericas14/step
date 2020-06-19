@@ -19,3 +19,11 @@ li{
 #map{
     height: 500px;
 }
+
+#section{
+    background-color: #c1fefe;
+    padding: 10px;
+    border-radius: 25px;
+    margin: 20px;
+    box-shadow: 5px 10px #F0F0F0;
+}
